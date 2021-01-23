@@ -14,12 +14,40 @@ export class OrderService {
       AVAILABILITY: ["BREAKFAST", "LUNCH"],
       PRICE: "50",
       TIME: new Date().getTime()
+    },
+    {
+      id: 2,
+      NAME: "Dosa",
+      TYPE: "Veg",
+      CUISINE: "SouthIndian",
+      AVAILABILITY: ["BREAKFAST", "LUNCH"],
+      PRICE: "50",
+      TIME: new Date().getTime()
+    },
+    {
+      id: 3,
+      NAME: "Dosa",
+      TYPE: "Veg",
+      CUISINE: "SouthIndian",
+      AVAILABILITY: ["BREAKFAST", "LUNCH"],
+      PRICE: "50",
+      TIME: new Date().getTime()
+    },
+    {
+      id: 4,
+      NAME: "Dosa",
+      TYPE: "Veg",
+      CUISINE: "SouthIndian",
+      AVAILABILITY: ["BREAKFAST", "LUNCH"],
+      PRICE: "50",
+      TIME: new Date().getTime()
     }
   ];
-  constructor(public cart: CartService) {}
+  constructor(public cart: CartService) {
+    this.orders = this.orderdata;
+  }
   orderPlace(data) {
-    this.orders = [];
-    console.log(data);
+    this.orders = this.orderdata;
 
     for (let i = 0; i < data.length; i++) {
       let item = data[i];
