@@ -17,7 +17,7 @@ export class OrderService {
     },
     {
       id: 2,
-      NAME: "Dosa",
+      NAME: "Idli",
       TYPE: "Veg",
       CUISINE: "SouthIndian",
       AVAILABILITY: ["BREAKFAST", "LUNCH"],
@@ -26,20 +26,20 @@ export class OrderService {
     },
     {
       id: 3,
-      NAME: "Dosa",
+      NAME: "Puri",
       TYPE: "Veg",
-      CUISINE: "SouthIndian",
+      CUISINE: "NortIndian",
       AVAILABILITY: ["BREAKFAST", "LUNCH"],
       PRICE: "50",
       TIME: new Date().getTime()
     },
     {
       id: 4,
-      NAME: "Dosa",
+      NAME: "Salad",
       TYPE: "Veg",
-      CUISINE: "SouthIndian",
+      CUISINE: "Italian",
       AVAILABILITY: ["BREAKFAST", "LUNCH"],
-      PRICE: "50",
+      PRICE: "140",
       TIME: new Date().getTime()
     }
   ];
@@ -51,7 +51,7 @@ export class OrderService {
 
     for (let i = 0; i < data.length; i++) {
       let item = data[i];
-      item["timestamp"] = new Date().getTime();
+      item["TIME"] = new Date().getTime();
       this.orders.push(item);
 
       if (i == data.length) {
