@@ -20,6 +20,10 @@ export class CartService {
     this.cart.next(this.sanitizeZeroCartData(data));
   }
 
+  cartReset() {
+    this.cart.next({});
+  }
+
   getCartDetails() {
     return this.cart.asObservable();
   }

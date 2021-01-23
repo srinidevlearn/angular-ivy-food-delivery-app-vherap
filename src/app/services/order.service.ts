@@ -7,14 +7,16 @@ export class OrderService {
   constructor(public cart: CartService) {}
   orderPlace(data) {
     this.orders = [];
+    console.log(data);
 
     for (let i = 0; i < data.length; i++) {
       let item = data[i];
       item["timestamp"] = new Date().getTime();
       this.orders.push(item);
 
-      if(i == data.length){
-        this.cart.upsertCart([]);
+      if (i == data.length) {
+        console.log(this.orders);
+        this.cart.upsertCart({});
       }
     }
   }

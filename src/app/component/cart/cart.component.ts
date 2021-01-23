@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
-import { Subscription } from "rxjs";
+import { Subscription, timer } from "rxjs";
+import { take } from "rxjs/operators";
 import { ProductAction } from "../../interfaces";
 import { CartService } from "../../services/cart.service";
 import { OrderService } from "../../services/order.service";
@@ -52,7 +53,12 @@ export class CartComponent implements OnInit, OnDestroy {
   }
   orderPlace() {
     this.order.orderPlace(this.cartPage);
-    this.router.navigateByUrl("/order");
+    timer(1 * 1000)
+      .pipe(take(1))
+      .subscribe(() => {
+        this.cart.cartReset();
+        this.router.navigateByUrl("/order");
+      });
   }
   decrement(id: number) {
     let currentFood = this.cartPage.find((food: any) => {
