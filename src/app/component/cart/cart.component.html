@@ -10,10 +10,35 @@
 		<div class="col-sm-12">
 			<ul class="list-group mx-auto mb-5 shadow-violet" style="width:40rem;">
 				<ng-container *ngFor="let item of cartPage">
-					<li class="list-group-item d-flex justify-content-between align-items-center">
+					<li class="list-group-item d-flex justify-content-between align-items-center shadow">
 						<div>
 							<h6 class="text-secondary">Name : <span class="cart-cursive mx-1">{{item.NAME}}</span></h6>
-							<h6 class="text-secondary">Quantity : <span class="mx-1">{{item.COUNT}}</span></h6>
+							<h6 class="text-secondary">Quantity : <button
+          type="button"
+          class="btn-sm border-0 p-1 px-1 rounded-0 bg-transparent"
+          (click)="decrement(item.ID)"
+        >
+          <i class="fas fa-minus text-secondary"></i>
+          
+        </button>
+
+								<input
+          type="number"
+           readonly="readonly"
+          class="border-0 text-center small-width bg-transparent"
+          step="1"
+          min="1"
+          max="5"
+          [value]="item.COUNT"
+        />
+								<button
+          type="button"
+          class="btn-sm border-0 p-1 px-1 rounded-0 bg-transparent"
+          (click)="increment(item.ID)"
+        >
+          <i class="fas fa-plus text-secondary"></i>
+        </button>
+							</h6>
 							<h6 class="text-secondary">Price :
 								<span><i class="fas fa-rupee-sign"></i></span><span class="mx-1">{{item.PRICE|price:item.COUNT}}</span>
 							</h6>
@@ -23,12 +48,14 @@
 							<img [src]="item.image" width="50" height="50" class="img-fluid" [alt]="item.NAME">
           </div>
 					</li>
-					<li class="list-group-item d-flex justify-content-between align-items-center">
-						<div class="text-center text-secondary font-weight-bold">Total</div>
-						<div class="text-center">{{total}}</div>
-					</li>
 				</ng-container>
-
+				<li class="list-group-item d-flex justify-content-between align-items-center">
+					<div class="text-center text-secondary font-weight-bold">TOTAL</div>
+					<h5 class="text-center">{{total}}</h5>
+				</li>
+				<li class="list-group-item d-flex justify-content-center align-items-center">
+					<a [routerLink]="['/order']" class="btn btn-warning cart-cursive">Place Order</a>
+				</li>
 			</ul>
 		</div>
 	</div>

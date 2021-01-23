@@ -6,3 +6,7 @@
   -moz-box-shadow: 0px 10px 16px 0px rgba(203, 190, 234, 0.75);
   box-shadow: 0px 10px 16px 0px rgba(203, 190, 234, 0.75);
 }
+.small-width {
+  width: 45px;
+  text-align: center;
+}

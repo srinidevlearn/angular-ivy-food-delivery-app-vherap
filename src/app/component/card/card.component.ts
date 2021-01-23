@@ -46,7 +46,7 @@ export class CardComponent implements OnInit, OnDestroy {
   increment(id: number) {
     this.defaultData++;
     this.defaultData = this.defaultData <= 5 ? this.defaultData : 5;
-    this.selectionEmit.emit({
+    this.emitData({
       ID: id,
       COUNT: this.defaultData
     });
@@ -55,7 +55,7 @@ export class CardComponent implements OnInit, OnDestroy {
     this.defaultData--;
     this.defaultData = this.defaultData < 0 ? 0 : this.defaultData;
 
-    this.selectionEmit.emit({
+    this.emitData({
       ID: id,
       COUNT: this.defaultData
     });
