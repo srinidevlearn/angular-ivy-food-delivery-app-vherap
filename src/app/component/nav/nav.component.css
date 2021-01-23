@@ -1,0 +1,15 @@
+.my-cart {
+  bottom: 12px;
+}
+
+a {
+  color: none;
+}
+
+.active {
+  color: blueviolet;
+  border-bottom: 3px dashed blueviolet;
+}
+.cursive {
+  font-family: "Courgette", cursive;
+}
