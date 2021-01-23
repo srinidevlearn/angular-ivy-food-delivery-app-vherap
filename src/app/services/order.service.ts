@@ -4,6 +4,18 @@ import { CartService } from "./cart.service";
 @Injectable()
 export class OrderService {
   orders = [];
+
+  orderdata = [
+    {
+      id: 1,
+      NAME: "Dosa",
+      TYPE: "Veg",
+      CUISINE: "SouthIndian",
+      AVAILABILITY: ["BREAKFAST", "LUNCH"],
+      PRICE: "50",
+      TIME: new Date().getTime()
+    }
+  ];
   constructor(public cart: CartService) {}
   orderPlace(data) {
     this.orders = [];
@@ -15,7 +27,6 @@ export class OrderService {
       this.orders.push(item);
 
       if (i == data.length) {
-        console.log(this.orders);
         this.cart.upsertCart({});
       }
     }
