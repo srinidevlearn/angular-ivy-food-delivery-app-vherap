@@ -1,7 +1,9 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
 import { Subscription } from "rxjs";
 import { ProductAction } from "../../interfaces";
 import { CartService } from "../../services/cart.service";
+import { OrderService } from "../../services/order.service";
 
 @Component({
   selector: "app-cart",
@@ -13,7 +15,11 @@ export class CartComponent implements OnInit, OnDestroy {
   cartPage: any = [];
   total = 0;
   selectionEmit: any;
-  constructor(public cart: CartService) {}
+  constructor(
+    public cart: CartService,
+    public router: Router,
+    public order: OrderService
+  ) {}
 
   ngOnInit() {
     this.sub = this.cart
@@ -43,6 +49,10 @@ export class CartComponent implements OnInit, OnDestroy {
     let temp = {};
     temp[id] = currentFood;
     this.cart.upsertCart(temp);
+  }
+  orderPlace() {
+    this.order.orderPlace(this.cartPage);
+    this.router.navigateByUrl("/order");
   }
   decrement(id: number) {
     let currentFood = this.cartPage.find((food: any) => {

@@ -54,7 +54,7 @@
 					<h5 class="text-center">{{total}}</h5>
 				</li>
 				<li class="list-group-item d-flex justify-content-center align-items-center">
-					<a [routerLink]="['/order']" class="btn btn-warning cart-cursive">Place Order</a>
+					<button type="button" (click)="orderPlace();" class="btn btn-warning cart-cursive">Place Order</button>
 				</li>
 			</ul>
 		</div>

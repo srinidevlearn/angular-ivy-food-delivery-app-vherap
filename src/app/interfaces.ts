@@ -17,6 +17,7 @@ export interface Product {
   PRICE: string;
   IMAGE?: string;
   COUNT: Number;
+  TIME?: Number;
 }
 export interface ProductAction {
   ID: Number;

@@ -21,6 +21,7 @@ import { LoaderComponent } from "./component/loader/loader.component";
 import { DishTypePipe } from "./pipes/dish-type.pipe";
 import { CartService } from "./services/cart.service";
 import { PricePipe } from './pipes/price.pipe';
+import { OrderService } from './services/order.service';
 
 const routes = [
   { path: "menu", component: MenuComponent },
@@ -54,6 +55,6 @@ const routes = [
     PricePipe
   ],
   bootstrap: [AppComponent],
-  providers: [ApiService, CartService]
+  providers: [ApiService, CartService, OrderService]
 })
 export class AppModule {}
