@@ -9,6 +9,7 @@ import { OrderService } from "../../services/order.service";
 export class OrderComponent implements OnInit {
   orders = [];
   cache = [];
+
   constructor(public order: OrderService) {}
 
   ngOnInit() {
@@ -28,7 +29,6 @@ export class OrderComponent implements OnInit {
           }
         }
       });
-      console.log(o);
 
       this.orders = [...o];
     }
@@ -37,9 +37,12 @@ export class OrderComponent implements OnInit {
   simpledataFilter(ip: any) {
     let ip2 = ip.target.value;
     if (ip2) {
-      let o = this.orders.filter(item => {
-        if (ip2.toLowerCase() == item.TYPE.toLowerCase()) return item;
+      let o = this.orders.filter((item, ind: number, arr: any) => {
+        if (ip2.toLowerCase() == item.TYPE.toLowerCase()) {
+          return item;
+        }
       });
+      this.orders = [...o];
     }
   }
 }

@@ -5,8 +5,8 @@ import { Pipe, PipeTransform } from "@angular/core";
 })
 export class DishTypePipe implements PipeTransform {
   transform(value: any, args?: any): any {
-    if (value.toLowerCase() == "northindian") return "North Indian";
-    if (value.toLowerCase() == "southindian") return "South Indian";
+    if (value.toLowerCase().includes("indian"))
+      return `${value.slice(0, 5)} Indian`;
     return value;
   }
 }

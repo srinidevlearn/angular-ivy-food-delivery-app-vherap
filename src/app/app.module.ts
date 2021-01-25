@@ -22,6 +22,7 @@ import { DishTypePipe } from "./pipes/dish-type.pipe";
 import { CartService } from "./services/cart.service";
 import { PricePipe } from './pipes/price.pipe';
 import { OrderService } from './services/order.service';
+import { SearchProdPipe } from './pipes/search-prod.pipe';
 
 const routes = [
   { path: "menu", component: MenuComponent },
@@ -52,7 +53,8 @@ const routes = [
     HomeComponent,
     LoaderComponent,
     DishTypePipe,
-    PricePipe
+    PricePipe,
+    SearchProdPipe
   ],
   bootstrap: [AppComponent],
   providers: [ApiService, CartService, OrderService]

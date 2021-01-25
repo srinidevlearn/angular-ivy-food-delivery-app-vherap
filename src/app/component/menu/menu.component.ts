@@ -17,6 +17,7 @@ export class MenuComponent implements OnInit, OnDestroy {
   subscription_1: any;
   hotelBasedFood: any = [];
   items: any;
+  searched: string = "";
 
   constructor(public api: ApiService, public cart: CartService) {}
 
@@ -35,6 +36,10 @@ export class MenuComponent implements OnInit, OnDestroy {
   }
   ngOnDestroy() {
     this.subscription_1.unsubscribe();
+  }
+  searchProduct(e) {
+    this.searched = e.target.value ? e.target.value : "";
+    console.log(this.searched);
   }
 
   captureSelectedFood(e) {
