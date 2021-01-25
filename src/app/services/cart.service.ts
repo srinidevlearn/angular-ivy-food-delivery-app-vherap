@@ -16,7 +16,6 @@ export class CartService {
     let temp = {};
     temp[key] = item;
     let data = { ...cart, ...temp };
-
     this.cart.next(this.sanitizeZeroCartData(data));
   }
 
